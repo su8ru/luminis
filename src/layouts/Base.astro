@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string | null;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title === null ? 'su8ru' : `${title} | su8ru`}</title>
+		<meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
