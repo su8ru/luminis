@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import IconImage from '../images/icon.png';
+---
+
+<header>
+  <div class="container">
+    <Image src={IconImage} alt="subaru" width="32" height="32" class="icon" />
+    <h1>subaru</h1>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(4px);
+  }
+  .container {
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 12px 0;
+  }
+  .icon {
+    margin: 8px;
+  }
+  h1 {
+    font-size: 1.4rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+</style>

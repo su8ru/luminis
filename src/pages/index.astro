@@ -1,7 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
 ---
 
 <Base title={null}>
-  <h1>Hello, Astro!</h1>
+  <Hero />
+  <main>
+    <Section>
+      <h2>About Me</h2>
+    </Section>
+    <Section>
+      <h2>Works</h2>
+    </Section>
+    <Section>
+      <h2>Articles</h2>
+    </Section>
+  </main>
 </Base>
+
+<style>
+  main {
+    background: #d4dce0;
+    color: #272a2c;
+    padding-top: 32px;
+    border-radius: 32px 32px 0 0;
+  }
+</style>

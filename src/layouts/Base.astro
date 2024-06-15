@@ -1,4 +1,9 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+
 interface Props {
   title: string | null;
 }
@@ -14,8 +19,78 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
   </head>
   <body>
-    <main>
-      <slot />
-    </main>
+    <Header />
+    <slot />
+    <Footer />
   </body>
 </html>
+
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    background: #292e30;
+    color: #ffffff;
+    color-scheme: dark;
+    font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+      'Hiragino Sans', Meiryo, sans-serif;
+
+    background: radial-gradient(
+      circle 400svh at 50% 300dvh,
+      #d4c0c8 30%,
+      #2b2f3f 55%,
+      #161822 65%
+    );
+  }
+</style>
+
+<!-- reset css -->
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+</style>
+
+<style is:global>
+  h1,
+  h2 {
+    font-weight: 500;
+  }
+</style>
