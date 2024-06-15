@@ -1,14 +1,22 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
+import More from '../components/More.astro';
 ---
 
 <Base title={null}>
+  <Header />
   <Hero />
   <main>
     <Section>
       <h2>About Me</h2>
+      <p>東京都出身、北海道札幌市在住の20さい。</p>
+      <p>北海道大学 工学部 情報エレクトロニクス学科 2年。</p>
+      <p>Web Front-end からインフラ周りまでいろいろすき。</p>
+      <More href="/me">私について もっと見る</More>
     </Section>
     <Section>
       <h2>Works</h2>
@@ -17,6 +25,7 @@ import Section from '../components/Section.astro';
       <h2>Articles</h2>
     </Section>
   </main>
+  <Footer />
 </Base>
 
 <style>
@@ -25,5 +34,27 @@ import Section from '../components/Section.astro';
     color: var(--text-color);
     padding-top: 32px;
     border-radius: 32px 32px 0 0;
+  }
+</style>
+
+<style is:global>
+  body {
+    font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+      'Hiragino Sans', Meiryo, sans-serif;
+    min-height: 100dvh;
+    background: radial-gradient(
+      circle 400svh at 50% 300dvh,
+      #f0cbc5 45%,
+      #adbed1 55%,
+      #a9c2f8 70%
+    );
+  }
+  .dark body {
+    background: radial-gradient(
+      circle 400svh at 50% 300dvh,
+      #f1aca0 40%,
+      #1e2335 55%,
+      #0d101b 70%
+    );
   }
 </style>
