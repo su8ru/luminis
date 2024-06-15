@@ -26,21 +26,32 @@ const { title } = Astro.props;
 </html>
 
 <style>
-  :root {
+  html {
+    color-scheme: light;
+    --text-color: #272a2c;
+    --bg-color: #d4dce0;
+  }
+  html.dark {
     color-scheme: dark;
+    --text-color: #ecf0f3;
+    --bg-color: #171c1f;
   }
   body {
-    background: #292e30;
-    color: #ffffff;
-    color-scheme: dark;
     font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
       'Hiragino Sans', Meiryo, sans-serif;
-
     background: radial-gradient(
       circle 400svh at 50% 300dvh,
-      #d4c0c8 30%,
-      #2b2f3f 55%,
-      #161822 65%
+      #e98f7f 45%,
+      #adbed1 55%,
+      #a9c2f8 70%
+    );
+  }
+  .dark body {
+    background: radial-gradient(
+      circle 400svh at 50% 300dvh,
+      #f1aca0 40%,
+      #1e2335 55%,
+      #0d101b 70%
     );
   }
 </style>
