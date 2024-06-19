@@ -1,0 +1,24 @@
+---
+import Common from '../layouts/Common.astro';
+import Section from '../components/Section.astro';
+
+interface Props {
+  title: string | null;
+}
+
+const { title } = Astro.props;
+---
+
+<Common title={title}>
+  <main>
+    <Section>
+      <slot />
+    </Section>
+  </main>
+</Common>
+
+<style>
+  main {
+    padding-top: 72px;
+  }
+</style>

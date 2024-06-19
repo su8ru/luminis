@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import Common from '../../layouts/Common.astro';
+import Section from '../../components/Section.astro';
+import Back from '../../components/Back.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const workEntries = await getCollection('works');
+  return workEntries.map((entry) => ({
+    params: {
+      slug: entry.slug,
+    },
+    props: { entry },
+  }));
+};
+
+interface Props {
+  entry: CollectionEntry<'works'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Common title={entry.data.title}>
+  <Image
+    src={entry.data.thumbnail.src}
+    alt={entry.data.thumbnail.alt}
+    class="thumbnail"
+  />
+  <Section>
+    <h2>
+      {entry.data.title}
+    </h2>
+    <Content />
+    <div class="center">
+      <Back href="/works">つくったもの一覧に戻る</Back>
+    </div>
+  </Section>
+</Common>
+
+<style>
+  .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+  .center {
+    margin-top: 16px;
+    text-align: center;
+  }
+</style>

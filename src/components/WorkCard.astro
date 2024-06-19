@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  work: CollectionEntry<'works'>;
+}
+
+const { work } = Astro.props;
+const { data } = work;
+---
+
+<article>
+  <a href={`/works/${work.slug}`}>
+    <h3>{data.title}</h3>
+    <Image
+      class="thumbnail"
+      src={data.thumbnail.src}
+      alt={data.thumbnail.alt}
+    />
+    <p class="description">{data.description}</p></a
+  >
+</article>
+
+<style>
+  article {
+    flex-basis: 350px;
+    flex-grow: 1;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  h3 {
+    font-size: 1.1rem;
+    margin-top: 16px;
+  }
+  .thumbnail {
+    width: 100%;
+    height: auto;
+    order: -1;
+    background: rgb(var(--text-color-rgb) / 0.1);
+  }
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+</style>

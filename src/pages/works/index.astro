@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import Back from '../../components/Back.astro';
+const works = await getCollection('works');
+---
+
+<Page title="Works">
+  <h2>Works - つくったもの。</h2>
+  <div class="container">
+    {
+      works
+        .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
+        .map((work) => <WorkCard work={work} />)
+    }
+    <div class="spacer"></div>
+  </div>
+  <div class="center">
+    <Back href="/">ホームに戻る</Back>
+  </div>
+</Page>
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    margin-top: 32px;
+  }
+  .spacer {
+    height: 0;
+    flex-basis: 350px;
+    flex-grow: 1;
+  }
+  .center {
+    text-align: center;
+    margin-top: 16px;
+  }
+</style>
