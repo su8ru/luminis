@@ -18,8 +18,26 @@ const { data } = work;
       src={data.thumbnail.src}
       alt={data.thumbnail.alt}
     />
-    <p class="description">{data.description}</p></a
-  >
+    <p class="description">{data.description}</p>
+    {
+      data.pinned && (
+        <span class="pinned">
+          <svg
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+          >
+            <path
+              d="M8.702 1.41L8.146.853l.708-.708 6 6-.707.708-.556-.556-4.456 7.13.719.718-.708.708L5 10.707.854 14.854l-.708-.707L4.293 10 .146 5.854l.708-.708.718.72 7.13-4.457z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      )
+    }
+  </a>
 </article>
 
 <style>
@@ -32,6 +50,7 @@ const { data } = work;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
+    position: relative;
   }
   h3 {
     font-size: 1.1rem;
@@ -47,5 +66,11 @@ const { data } = work;
     font-size: 0.95rem;
     line-height: 1.4;
     margin-top: 8px;
+  }
+  .pinned {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    color: #fff;
   }
 </style>

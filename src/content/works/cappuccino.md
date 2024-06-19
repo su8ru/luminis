@@ -2,6 +2,7 @@
 title: 文化祭入退場管理システム『CAPPUCCINO』
 description: リストバンドを用いたシステムの構築および運用
 date: 2022-10-14
+pinned: true
 thumbnail:
   src: ./images/cappuccino-app.png
   alt: CAPPUCCINO アプリのスクリーンショット

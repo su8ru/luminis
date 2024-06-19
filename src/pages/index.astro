@@ -1,10 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import More from '../components/More.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const works = await getCollection('works', (w) => w.data.pinned);
 ---
 
 <Base title={null}>
@@ -12,14 +16,22 @@ import More from '../components/More.astro';
   <Hero />
   <main>
     <Section>
-      <h2>About Me</h2>
+      <h2 id="me">About Me</h2>
       <p>東京都出身、北海道札幌市在住の20さい。</p>
       <p>北海道大学 工学部 情報エレクトロニクス学科 2年。</p>
       <p>Web Front-end からインフラ周りまでいろいろすき。</p>
       <More href="/me">私について もっと見る</More>
     </Section>
     <Section>
-      <h2>Works</h2>
+      <h2 id="works">Works</h2>
+      <div class="container">
+        {
+          works
+            .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
+            .map((work) => <WorkCard work={work} />)
+        }
+        <div class="spacer"></div>
+      </div>
       <More href="/works">つくったものをもっと見る</More>
     </Section>
     <Section>
@@ -35,6 +47,17 @@ import More from '../components/More.astro';
     color: var(--text-color);
     padding-top: 32px;
     border-radius: 32px 32px 0 0;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    margin-top: 32px;
+  }
+  .spacer {
+    height: 0;
+    flex-basis: 350px;
+    flex-grow: 1;
   }
 </style>
 

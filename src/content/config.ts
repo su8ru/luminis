@@ -13,6 +13,7 @@ const works = defineCollection({
       title: z.string(),
       description: z.string(),
       date: z.date(),
+      pinned: z.boolean().default(false),
       thumbnail: imageSchema(image),
       images: z.array(imageSchema(image)).optional(),
     }),
