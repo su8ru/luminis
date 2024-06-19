@@ -7,8 +7,11 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import More from '../components/More.astro';
 import WorkCard from '../components/WorkCard.astro';
+import { getArticles } from '../libs/articles';
+import ArticleCard from '../components/ArticleCard.astro';
 
 const works = await getCollection('works', (w) => w.data.pinned);
+const articles = await getArticles();
 ---
 
 <Base title={null}>
@@ -36,49 +39,50 @@ const works = await getCollection('works', (w) => w.data.pinned);
     </Section>
     <Section>
       <h2>Articles</h2>
+      {articles.map((article) => <ArticleCard article={article} />)}
     </Section>
+    <Footer />
   </main>
-  <Footer />
+
+  <style>
+    main {
+      background: var(--bg-color);
+      color: var(--text-color);
+      padding-top: 32px;
+      border-radius: 32px 32px 0 0;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px 16px;
+      margin-top: 32px;
+    }
+    .spacer {
+      height: 0;
+      flex-basis: 350px;
+      flex-grow: 1;
+    }
+  </style>
+
+  <style is:global>
+    body {
+      font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+        'Hiragino Sans', Meiryo, sans-serif;
+      min-height: 100dvh;
+      background: radial-gradient(
+        circle 400svh at 50% 300dvh,
+        #f0cbc5 45%,
+        #adbed1 55%,
+        #a9c2f8 70%
+      );
+    }
+    .dark body {
+      background: radial-gradient(
+        circle 400svh at 50% 300dvh,
+        #f1aca0 40%,
+        #1e2335 55%,
+        #0d101b 70%
+      );
+    }
+  </style>
 </Base>
-
-<style>
-  main {
-    background: var(--bg-color);
-    color: var(--text-color);
-    padding-top: 32px;
-    border-radius: 32px 32px 0 0;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px 16px;
-    margin-top: 32px;
-  }
-  .spacer {
-    height: 0;
-    flex-basis: 350px;
-    flex-grow: 1;
-  }
-</style>
-
-<style is:global>
-  body {
-    font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
-      'Hiragino Sans', Meiryo, sans-serif;
-    min-height: 100dvh;
-    background: radial-gradient(
-      circle 400svh at 50% 300dvh,
-      #f0cbc5 45%,
-      #adbed1 55%,
-      #a9c2f8 70%
-    );
-  }
-  .dark body {
-    background: radial-gradient(
-      circle 400svh at 50% 300dvh,
-      #f1aca0 40%,
-      #1e2335 55%,
-      #0d101b 70%
-    );
-  }
-</style>

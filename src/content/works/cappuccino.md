@@ -1,6 +1,6 @@
 ---
 title: 文化祭入退場管理システム『CAPPUCCINO』
-description: リストバンドを用いたシステムの構築および運用
+description: リストバンドを用いたシステムの構築および運用までを総合的に実現。
 date: 2022-10-14
 pinned: true
 thumbnail:

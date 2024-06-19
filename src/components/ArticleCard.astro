@@ -1,0 +1,16 @@
+---
+import type { Article } from '../libs/articles';
+
+interface Props {
+  article: Article;
+}
+
+const { article } = Astro.props;
+---
+
+<article>
+  <a href={article.url}>
+    <h3>{article.title}</h3>
+    <span></span>
+  </a>
+</article>
