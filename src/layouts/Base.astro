@@ -27,14 +27,18 @@ const { title } = Astro.props;
   html {
     color-scheme: light;
     --text-color: #272a2c;
+    --text-color-rgb: 39 42 44;
     --bg-color: #d4dce0;
-    --accent-color: #c94888;
+    --bg-color-rgb: 212 220 224;
+    --accent-color: #d42b80;
   }
   html.dark {
     color-scheme: dark;
     --text-color: #ecf0f3;
+    --text-color-rgb: 236 240 243;
     --bg-color: #272a2c;
-    --accent-color: #ff87c9;
+    --bg-color-rgb: 39 42 44;
+    --accent-color: #fd9cd1;
   }
   body {
     font-family: Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
@@ -102,5 +106,61 @@ const { title } = Astro.props;
   }
   p + p {
     margin-top: 8px;
+  }
+
+  .rlc-container {
+    display: flex;
+    height: 120px;
+    border: 1px solid rgb(var(--text-color-rgb) / 0.4);
+    color: var(--text-color);
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 12px;
+    word-break: break-all;
+    margin-top: 8px;
+  }
+  .rlc-info {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+  .rlc-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .rlc-url-container {
+    display: flex;
+    gap: 4px;
+  }
+  .rlc-url {
+    font-size: 0.9rem;
+    line-height: 16px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .rlc-image-container {
+    height: 100%;
+    flex-shrink: 0;
+  }
+  .rlc-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+  @media (max-width: 700px) {
+    .rlc-image {
+      aspect-ratio: 1 / 1;
+    }
   }
 </style>
