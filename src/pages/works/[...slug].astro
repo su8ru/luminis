@@ -29,6 +29,10 @@ const { Content } = await entry.render();
     src={entry.data.thumbnail.src}
     alt={entry.data.thumbnail.alt}
     class="thumbnail"
+    widths={[480, 640, 1280, 1920]}
+    sizes={[480, 640, 1280, 1920]
+      .map((w) => `(max-width: ${w}px) ${w}px`)
+      .join(',')}
   />
   <Section>
     <h2>
