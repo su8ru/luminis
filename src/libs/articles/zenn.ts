@@ -33,5 +33,6 @@ export const getArticlesFromZenn = async (): Promise<Article[]> => {
     title,
     url: `https://zenn.dev${path}`,
     createdAt: published_at,
+    site: 'zenn.dev',
   }));
 };

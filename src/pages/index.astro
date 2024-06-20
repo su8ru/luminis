@@ -33,13 +33,16 @@ const articles = await getArticles();
             .sort((a, b) => (a.data.date > b.data.date ? -1 : 1))
             .map((work) => <WorkCard work={work} />)
         }
-        <div class="spacer"></div>
+        <div class="spacer spacer-works"></div>
       </div>
       <More href="/works">つくったものをもっと見る</More>
     </Section>
     <Section>
       <h2>Articles</h2>
-      {articles.map((article) => <ArticleCard article={article} />)}
+      <div class="container">
+        {articles.map((article) => <ArticleCard article={article} />)}
+        <div class="spacer spacer-articles"></div>
+      </div>
     </Section>
     <Footer />
   </main>
@@ -54,13 +57,18 @@ const articles = await getArticles();
     .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 32px 16px;
+      gap: 16px;
       margin-top: 32px;
     }
     .spacer {
       height: 0;
-      flex-basis: 350px;
       flex-grow: 1;
+    }
+    .spacer-works {
+      flex-basis: 300px;
+    }
+    .spacer-articles {
+      flex-basis: 250px;
     }
   </style>
 

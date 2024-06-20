@@ -1,16 +1,74 @@
 ---
-import type { Article } from '../libs/articles';
+import { Image } from 'astro:assets';
+import dayjs from 'dayjs';
+import { getFaviconUrl, type Article } from '../libs/articles';
 
 interface Props {
   article: Article;
 }
 
 const { article } = Astro.props;
+
+const date = dayjs(article.createdAt).format('YYYY-MM-DD');
+const faviconSrc = getFaviconUrl(article.site);
 ---
 
 <article>
   <a href={article.url}>
     <h3>{article.title}</h3>
-    <span></span>
+    <div class="info">
+      <div class="site">
+        <Image
+          src={faviconSrc}
+          alt={article.site}
+          class="site-icon"
+          width="16"
+          height="16"
+        />
+        <span>{article.site}</span>
+      </div>
+      <span>{date}</span>
+    </div>
   </a>
 </article>
+
+<style>
+  article {
+    flex-basis: 250px;
+    flex-grow: 1;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    height: 100%;
+    background: rgb(var(--text-color-rgb) / 0.08);
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+  a:hover {
+    background: rgb(var(--text-color-rgb) / 0.12);
+  }
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: rgb(var(--text-color-rgb) / 0.8);
+  }
+  .site {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .site-icon {
+    border-radius: 4px;
+  }
+</style>

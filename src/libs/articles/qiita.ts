@@ -20,7 +20,12 @@ type Item = {
 
 const _fetch = async (): Promise<Item[]> => {
   const res = await fetch(
-    'https://qiita.com/api/v2/users/su8ru/items?per_page=100'
+    'https://qiita.com/api/v2/users/su8ru/items?per_page=100',
+    {
+      headers: {
+        Authorization: `Bearer ${import.meta.env.SECRET_QIITA_TOKEN}`,
+      },
+    }
   );
   return res.json();
 };
@@ -31,5 +36,6 @@ export const getArticlesFromQiita = async (): Promise<Article[]> => {
     title,
     url,
     createdAt: created_at,
+    site: 'qiita.com',
   }));
 };
