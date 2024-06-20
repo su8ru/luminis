@@ -36,8 +36,32 @@ const works = await getCollection('works', (w) => w.data.pinned);
       <More href="/works">つくったものをもっと見る</More>
     </Section>
     <Section>
-      <h2>Articles</h2>
+      <h2 id="articles">Articles</h2>
       <ArticleList />
+    </Section>
+    <Section>
+      <h2 id="contact">Contact</h2>
+      <a href="mailto:contact@su8ru.dev" class="contact-link">
+        <svg
+          viewBox="0 0 16 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+        >
+          <path
+            d="M.5 2.5A1.5 1.5 0 012 1h12a1.5 1.5 0 011.5 1.5v1.208L8 7.926.5 3.708V2.5z"
+            fill="currentColor"
+          >
+          </path>
+          <path
+            d="M.5 4.855V12.5A1.5 1.5 0 002 14h12a1.5 1.5 0 001.5-1.5V4.855L8 9.074.5 4.854z"
+            fill="currentColor"
+          >
+          </path>
+        </svg>
+        contact@su8ru.dev
+      </a>
     </Section>
     <Footer />
   </main>
@@ -49,6 +73,10 @@ const works = await getCollection('works', (w) => w.data.pinned);
       padding-top: 32px;
       border-radius: 32px 32px 0 0;
     }
+    h2 {
+      padding-top: 80px;
+      margin-top: -80px;
+    }
     .works-container {
       display: flex;
       flex-wrap: wrap;
@@ -59,6 +87,14 @@ const works = await getCollection('works', (w) => w.data.pinned);
       height: 0;
       flex-grow: 1;
       flex-basis: 300px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+      color: var(--text-color);
+      margin-top: 16px;
     }
   </style>
 
