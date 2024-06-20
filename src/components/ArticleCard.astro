@@ -5,15 +5,16 @@ import { getFaviconUrl, type Article } from '../libs/articles';
 
 interface Props {
   article: Article;
+  class?: string;
 }
 
-const { article } = Astro.props;
+const { article, class: className } = Astro.props;
 
 const date = dayjs(article.createdAt).format('YYYY-MM-DD');
 const faviconSrc = getFaviconUrl(article.site);
 ---
 
-<article>
+<article class={className}>
   <a href={article.url}>
     <h3>{article.title}</h3>
     <div class="info">

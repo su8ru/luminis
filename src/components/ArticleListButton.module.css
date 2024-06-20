@@ -1,0 +1,19 @@
+.button {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgb(var(--text-color-rgb) / 0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.button:hover {
+  background: rgb(var(--text-color-rgb) / 0.12);
+}
+.icon {
+  margin-top: -1px;
+}
+.label {
+  font-weight: 600;
+}

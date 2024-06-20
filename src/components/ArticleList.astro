@@ -1,0 +1,47 @@
+---
+import { getArticles } from '../libs/articles';
+import ArticleCard from './ArticleCard.astro';
+import ArticleListButton from './ArticleListButton.tsx';
+
+const articles = await getArticles();
+---
+
+<div class="container" id="article-list" style={{ '--display-all': 'none' }}>
+  {
+    articles.map((article, i) => (
+      <ArticleCard
+        article={article}
+        class={i > 3 ? 'old-article' : undefined}
+      />
+    ))
+  }
+  <div class="spacer spacer-articles"></div>
+</div>
+
+<div class="center">
+  <ArticleListButton client:idle />
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .spacer {
+    height: 0;
+    flex-grow: 1;
+    flex-basis: 250px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<style is:global>
+  .old-article {
+    display: var(--display-all);
+  }
+</style>
