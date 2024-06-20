@@ -25,7 +25,7 @@ const { data } = work;
       data.pinned && (
         <span class="pinned">
           <svg
-            viewBox="0 0 15 15"
+            viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             width="15"
@@ -63,6 +63,10 @@ const { data } = work;
     height: auto;
     order: -1;
     background: rgb(var(--text-color-rgb) / 0.1);
+    transition: transform 0.1s ease-in-out;
+  }
+  a:hover .thumbnail {
+    transform: scale(1.04);
   }
   .description {
     font-size: 0.95rem;
@@ -72,8 +76,11 @@ const { data } = work;
   .pinned {
     position: absolute;
     top: -4px;
-    right: -4px;
+    right: -7px;
     color: #fff;
     filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.5));
+    background: var(--highlight-color);
+    padding: 4px;
+    border-radius: 8px;
   }
 </style>

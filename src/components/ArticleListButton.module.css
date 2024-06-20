@@ -4,6 +4,7 @@
   border-radius: 8px;
   border: none;
   background: rgb(var(--text-color-rgb) / 0.08);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   gap: 8px;
