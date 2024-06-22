@@ -1,6 +1,9 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import iconImage from '../images/icon.png';
+import starryImageSrc from '../images/starry.png';
+
+const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
 ---
 
 <div class="hero">
@@ -34,7 +37,7 @@ import iconImage from '../images/icon.png';
   </div>
 </div>
 
-<style>
+<style define:vars={{ starry: `url(${starryImage.src})` }}>
   .hero {
     height: calc(100svh - 72px);
     display: flex;
@@ -43,6 +46,10 @@ import iconImage from '../images/icon.png';
     align-items: center;
     color: #fff;
     gap: 64px;
+    background-image: var(--starry);
+    background-size: auto;
+    background-position: center;
+    background-repeat: repeat;
   }
   .me {
     display: flex;
