@@ -2,12 +2,19 @@
 import { Image, getImage } from 'astro:assets';
 import iconImage from '../images/icon.png';
 import starryImageSrc from '../images/starry.png';
-import starryImage2Src from '../images/starry@2x.png';
-import starryImage3Src from '../images/starry@3x.png';
 
-const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
-const starryImage2 = await getImage({ src: starryImage2Src, format: 'webp' });
-const starryImage3 = await getImage({ src: starryImage3Src, format: 'webp' });
+const starryImages = await getImage({
+  src: starryImageSrc,
+  format: 'webp',
+  width: 960,
+  densities: [1, 2, 3],
+});
+const starryVars = Object.fromEntries(
+  starryImages.srcSet.values.map((image) => [
+    `starry${image.descriptor}`,
+    `url(${image.url}) ${image.descriptor}`,
+  ])
+);
 ---
 
 <div class="hero">
@@ -46,13 +53,7 @@ const starryImage3 = await getImage({ src: starryImage3Src, format: 'webp' });
   </div>
 </div>
 
-<style
-  define:vars={{
-    starry: `url(${starryImage.src})`,
-    starry2: `url(${starryImage2.src})`,
-    starry3: `url(${starryImage3.src})`,
-  }}
->
+<style define:vars={{ ...starryVars }}>
   .hero {
     height: calc(100svh - 72px);
     display: flex;
@@ -61,16 +62,16 @@ const starryImage3 = await getImage({ src: starryImage3Src, format: 'webp' });
     align-items: center;
     color: #fff;
     gap: 64px;
-    background-image: var(--starry);
+    background-image: var(--starry1x);
     background-image: -webkit-image-set(
-      var(--starry) 1x,
-      var(--starry2) 2x,
-      var(--starry3) 3x
+      var(--starry1x),
+      var(--starry2x),
+      var(--starry3x)
     );
     background-image: image-set(
-      var(--starry) 1x,
-      var(--starry2) 2x,
-      var(--starry3) 3x
+      var(--starry1x),
+      var(--starry2x),
+      var(--starry3x)
     );
     background-size: auto;
     background-position: center;
@@ -82,7 +83,8 @@ const starryImage3 = await getImage({ src: starryImage3Src, format: 'webp' });
     align-items: center;
   }
   .info {
-    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+    filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.5))
+      drop-shadow(0 0 4px rgb(0 0 0 / 0.5));
   }
   h1 {
     font-size: 2.4rem;
