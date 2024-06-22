@@ -1,0 +1,52 @@
+<svg
+  viewBox="0 0 1920 1920"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  width="1920"
+  height="1920"
+  id="starry"
+>
+  <style>
+    .star {
+      filter: blur(0.5px);
+    }
+  </style>
+</svg>
+
+<style>
+  #starry {
+    background: black;
+  }
+</style>
+
+<script>
+  const starry = document.getElementById('starry');
+  const createStar = (color: boolean, size?: string) => {
+    if (starry === null) return;
+    const star = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
+    star.setAttribute('cx', `${Math.random() * 1920}`);
+    star.setAttribute('cy', `${Math.random() * 1920}`);
+    star.setAttribute('r', size ?? `${Math.random() * 1 + 1}`);
+    star.setAttribute('fill', 'white');
+    star.classList.add('star');
+    star.style.fill = color
+      ? `hsl(${[0, 190][Math.floor(Math.random() * 2)] + Math.random() * 40}, 100%, 95%)`
+      : 'white';
+    starry.appendChild(star);
+  };
+  for (let i = 0; i < 2000; i++) {
+    createStar(true);
+    createStar(false, '1');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+    createStar(false, '0.5');
+  }
+</script>

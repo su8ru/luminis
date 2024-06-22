@@ -2,13 +2,22 @@
 import { Image, getImage } from 'astro:assets';
 import iconImage from '../images/icon.png';
 import starryImageSrc from '../images/starry.png';
+import starryImage2Src from '../images/starry@2x.png';
+import starryImage3Src from '../images/starry@3x.png';
 
 const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
+const starryImage2 = await getImage({ src: starryImage2Src, format: 'webp' });
+const starryImage3 = await getImage({ src: starryImage3Src, format: 'webp' });
 ---
 
 <div class="hero">
   <div class="me">
-    <Image src={iconImage} alt="subaru icon" width="140" />
+    <Image
+      src={iconImage}
+      alt="subaru icon"
+      width="140"
+      densities={[1, 2, 3]}
+    />
     <div class="info">
       <h1>subaru</h1>
       <p>Web App Developer</p>
@@ -37,7 +46,13 @@ const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
   </div>
 </div>
 
-<style define:vars={{ starry: `url(${starryImage.src})` }}>
+<style
+  define:vars={{
+    starry: `url(${starryImage.src})`,
+    starry2: `url(${starryImage2.src})`,
+    starry3: `url(${starryImage3.src})`,
+  }}
+>
   .hero {
     height: calc(100svh - 72px);
     display: flex;
@@ -47,6 +62,16 @@ const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
     color: #fff;
     gap: 64px;
     background-image: var(--starry);
+    background-image: -webkit-image-set(
+      var(--starry) 1x,
+      var(--starry2) 2x,
+      var(--starry3) 3x
+    );
+    background-image: image-set(
+      var(--starry) 1x,
+      var(--starry2) 2x,
+      var(--starry3) 3x
+    );
     background-size: auto;
     background-position: center;
     background-repeat: repeat;
@@ -55,6 +80,9 @@ const starryImage = await getImage({ src: starryImageSrc, format: 'webp' });
     display: flex;
     gap: 32px;
     align-items: center;
+  }
+  .info {
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
   }
   h1 {
     font-size: 2.4rem;
