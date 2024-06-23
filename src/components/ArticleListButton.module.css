@@ -3,7 +3,7 @@
   padding: 4px 12px;
   border-radius: 8px;
   border: none;
-  background: rgb(var(--text-color-rgb) / 0.08);
+  background: rgb(var(--accent-color-rgb) / 0.08);
   color: var(--text-color);
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 .button:hover {
-  background: rgb(var(--text-color-rgb) / 0.12);
+  background: rgb(var(--accent-color-rgb) / 0.12);
 }
 .icon {
   margin-top: -1px;
