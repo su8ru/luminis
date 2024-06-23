@@ -24,7 +24,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Common title={entry.data.title}>
+<Common title={`${entry.data.title} | Works`}>
   <Image
     src={entry.data.thumbnail.src}
     alt={entry.data.thumbnail.alt}
