@@ -1,7 +1,24 @@
 ---
 import Page from '../layouts/Page.astro';
+import Back from '../components/Back.astro';
 ---
 
 <Page title="About Me">
   <h2>About Me - 私について。</h2>
+  <p>東京都出身、北海道札幌市在住の20さい。</p>
+  <p>北海道大学 工学部 情報エレクトロニクス学科の 2 年生。</p>
+  <p>
+    ウェブフロントエンドが一番の得意分野で、体系立ったシステムの UI
+    が好み。インフラ周りもちょっとだけできる。
+  </p>
+  <div class="center">
+    <Back href="/#works">ホームに戻る</Back>
+  </div>
 </Page>
+
+<style>
+  .center {
+    text-align: center;
+    margin-top: 16px;
+  }
+</style>
