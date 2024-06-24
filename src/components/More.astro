@@ -15,7 +15,7 @@ const { href } = Astro.props;
     width="16"
     height="16"
   >
-    <path d="M13.5 7.5l-4-4m4 4l-4 4m4-4H1" stroke="currentColor"></path>
+    <path d="M13.5 7.5l-4-4m4 4l-4 4m4-4H1"></path>
   </svg>
 </a>
 
@@ -24,7 +24,7 @@ const { href } = Astro.props;
     color: var(--text-color);
     text-decoration: none;
     display: inline-block;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border: 2px solid var(--text-color);
     border-radius: 12px;
     margin-top: 16px;
@@ -38,5 +38,9 @@ const { href } = Astro.props;
     display: inline-block;
     margin-bottom: -2px;
     margin-left: 2px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 </style>

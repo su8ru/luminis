@@ -14,7 +14,7 @@ const { href } = Astro.props;
     width="15"
     height="15"
   >
-    <path d="M1.5 7.5l4-4m-4 4l4 4m-4-4H14" stroke="currentColor"></path>
+    <path d="M1.5 7.5l4-4m-4 4l4 4m-4-4H14"></path>
   </svg>
   <slot />
 </a>
@@ -24,10 +24,11 @@ const { href } = Astro.props;
     color: var(--text-color);
     text-decoration: none;
     display: inline-block;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border: 2px solid var(--text-color);
     border-radius: 12px;
     margin-top: 16px;
+    font-weight: 500;
   }
   a:hover {
     border-color: var(--accent-color);
@@ -36,6 +37,10 @@ const { href } = Astro.props;
   svg {
     display: inline-block;
     margin-bottom: -2px;
-    margin-left: 2px;
+    margin-right: 2px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 </style>
