@@ -1,9 +1,10 @@
 .button {
   display: inline-block;
   padding: 4px 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
-  background: rgb(var(--accent-color-rgb) / 0.08);
+  background: transparent;
+  border: 1px solid rgb(var(--text-color-rgb) / 0.4);
   color: var(--text-color);
   display: flex;
   align-items: center;
@@ -11,7 +12,7 @@
   cursor: pointer;
 }
 .button:hover {
-  background: rgb(var(--accent-color-rgb) / 0.12);
+  background: rgb(var(--accent-color-rgb) / 0.04);
 }
 .icon {
   margin-top: -1px;

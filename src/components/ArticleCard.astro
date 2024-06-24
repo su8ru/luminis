@@ -36,6 +36,7 @@ const faviconSrc = getFaviconUrl(article.site);
 <style>
   article {
     flex-basis: 250px;
+    min-height: 120px;
     flex-grow: 1;
   }
   a {
@@ -46,12 +47,12 @@ const faviconSrc = getFaviconUrl(article.site);
     justify-content: space-between;
     gap: 8px;
     height: 100%;
-    background: rgb(var(--accent-color-rgb) / 0.08);
+    border: 1px solid rgb(var(--text-color-rgb) / 0.4);
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 12px;
   }
   a:hover {
-    background: rgb(var(--accent-color-rgb) / 0.12);
+    background: rgb(var(--accent-color-rgb) / 0.04);
   }
   h3 {
     font-size: 1.05rem;

@@ -122,8 +122,8 @@ const { title } = Astro.props;
   p + p {
     margin-top: 8px;
   }
-  a,
-  a:visited {
+  .content a,
+  .content a:visited {
     color: var(--accent-color);
   }
 
@@ -137,6 +137,9 @@ const { title } = Astro.props;
     border-radius: 12px;
     word-break: break-all;
     margin-top: 16px;
+  }
+  .rlc-container:hover {
+    background: rgb(var(--accent-color-rgb) / 0.04);
   }
   .rlc-info a,
   .rlc-info a:visited {
