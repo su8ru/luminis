@@ -7,8 +7,12 @@ thumbnail:
   src: ./images/cappuccino-app.png
   alt: CAPPUCCINO アプリのスクリーンショット
 images:
+  - src: ./images/cappuccino-app.png
+    alt: CAPPUCCINO アプリ（モバイル表示）
   - src: ./images/cappuccino-ipad.jpg
-    alt: CAPPUCCINO を用いた文化祭への入場処理風景
+    alt: 文化祭への入場口では iPad を使用
+  - src: ./images/cappuccino-entry.jpg
+    alt: 文化祭当日、一番最初の入場風景
 ---
 
 コロナ禍における文化祭で人数統制のために使用した、リストバンドを用いた入退場管理システムです。

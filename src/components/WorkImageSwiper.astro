@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  images: CollectionEntry<'works'>['data']['images'];
+}
+const { images } = Astro.props;
+---
+
+<script>
+  import { register } from 'swiper/element/bundle';
+  register();
+</script>
+
+<swiper-container
+  slides-per-view="1"
+  loop="true"
+  navigation="true"
+  pagination="true"
+  pagination-clickable="true"
+  autoplay-delay="5000"
+>
+  {
+    images?.map((image) => (
+      <swiper-slide>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          class="item-image"
+          width="800"
+          densities={[1, 2, 3]}
+        />
+        <span class="item-caption">{image.alt}</span>
+      </swiper-slide>
+    ))
+  }
+</swiper-container>
+
+<style>
+  swiper-container {
+    --swiper-navigation-size: 32px;
+    --swiper-navigation-top-offset: calc(50% - 32px);
+    --swiper-navigation-sides-offset: 8px;
+  }
+  swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 32px;
+  }
+  swiper-container::part(bullet-active) {
+    background: var(--accent-color);
+  }
+  swiper-container::part(bullet) {
+    background: var(--text-color);
+    opacity: 0.2;
+  }
+  swiper-container::part(button-next),
+  swiper-container::part(button-prev) {
+    color: var(--text-color);
+    filter: drop-shadow(0 0 2px rgb(var(--bg-color-rgb) / 0.5))
+      drop-shadow(0 2px 3px rgb(var(--bg-color-rgb) / 0.3));
+  }
+  .item-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+  .item-caption {
+    font-size: 0.9rem;
+    color: rgb(var(--text-color-rgb) / 0.8);
+  }
+</style>

@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import Common from '../../layouts/Common.astro';
 import Section from '../../components/Section.astro';
 import Back from '../../components/Back.astro';
+import WorkImageSwiper from '../../components/WorkImageSwiper.astro';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const workEntries = await getCollection('works');
@@ -41,10 +42,11 @@ const { Content } = await entry.render();
     <div class="content">
       <Content />
     </div>
-    <div class="center">
-      <Back href="/works">つくったもの一覧に戻る</Back>
-    </div>
   </Section>
+  <div class="center">
+    <WorkImageSwiper images={entry.data.images} />
+    <Back href="/works">つくったもの一覧に戻る</Back>
+  </div>
 </Common>
 
 <style>
@@ -55,7 +57,9 @@ const { Content } = await entry.render();
     object-fit: cover;
   }
   .center {
-    margin-top: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px 0;
     text-align: center;
   }
 </style>
