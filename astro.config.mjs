@@ -5,6 +5,9 @@ import preact from '@astrojs/preact';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://su8ru.dev',
+  build: {
+    format: 'file',
+  },
   markdown: {
     remarkPlugins: [remarkLinkCard],
   },
