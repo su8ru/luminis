@@ -19,7 +19,7 @@ images:
     alt: コンフィグ画面
 ---
 
-KAMITSUBAKI STUDIO 所属のバーチャルシンガー・ヰ世界情緒さん主演のアイドル育成ADVゲーム『[project canvas ～ヰ世界情緒育成計画～](https://kamitsubaki.jp/news/2024/04/01/3289/)』のプログラムを担当しました。
+KAMITSUBAKI STUDIO 所属のバーチャルシンガー・ヰ世界情緒さん主演のアイドル育成ADVゲーム『[project canvas ～ヰ世界情緒育成計画～](https://kamitsubaki.jp/news/2024/04/01/3289/)』にて、HTML5 ベースエンジンを用いたプログラムを担当しました。
 
 Steam にて無料配信中です。
 
