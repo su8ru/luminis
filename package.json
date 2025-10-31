@@ -14,26 +14,27 @@
     "lint:fix": "eslint --fix src"
   },
   "dependencies": {
-    "@astrojs/check": "^0.7.0",
-    "@astrojs/preact": "^3.5.0",
-    "@fontsource/inter": "^5.0.18",
-    "astro": "^4.10.2",
-    "dayjs": "^1.11.11",
-    "preact": "^10.22.0",
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/preact": "^4.1.2",
+    "@fontsource/inter": "^5.2.8",
+    "astro": "^5.15.3",
+    "dayjs": "^1.11.19",
+    "preact": "^10.27.2",
     "remark-link-card": "^1.3.1",
-    "swiper": "^11.1.4",
-    "typescript": "^5.4.5"
+    "swiper": "^12.0.3",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.4.0",
-    "@types/eslint": "^8.56.10",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^1.2.2",
-    "globals": "^15.4.0",
-    "prettier": "^3.3.2",
-    "prettier-plugin-astro": "^0.14.0"
+    "@eslint/js": "^9.38.0",
+    "@types/eslint": "^9.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.4.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "sharp": "^0.34.4"
   }
 }
