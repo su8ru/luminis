@@ -1,6 +1,7 @@
 ---
 title: Frourio 公式ドキュメント
 description: TypeScript製フルスタックフレームワークのドキュメントを制作。
+type: OSS
 date: 2023-08-01
 thumbnail:
   src: ./images/frourio-hero.png

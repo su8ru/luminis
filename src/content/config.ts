@@ -12,6 +12,8 @@ const works = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      role: z.string().optional(),
+      type: z.string(),
       date: z.date(),
       pinned: z.boolean().default(false),
       thumbnail: imageSchema(image),

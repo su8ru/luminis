@@ -1,6 +1,7 @@
 ---
 title: su8ru.dev (old)
 description: 2022年に制作したポートフォリオサイト。
+type: 趣味
 date: 2022-04-01
 thumbnail:
   src: ./images/su8ru-dev-old-hero.png

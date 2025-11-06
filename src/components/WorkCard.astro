@@ -20,6 +20,10 @@ const { data } = work;
       width="640"
       densities={[1, 2, 3]}
     />
+    <div class="badges">
+      <span class="badge badge-type">{data.type}</span>
+      {data.role && <span class="badge badge-role">{data.role}</span>}
+    </div>
     <p class="description">{data.description}</p>
     {
       data.pinned && (
@@ -28,8 +32,8 @@ const { data } = work;
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
+            width="16"
+            height="16"
           >
             <path
               d="M8.702 1.41L8.146.853l.708-.708 6 6-.707.708-.556-.556-4.456 7.13.719.718-.708.708L5 10.707.854 14.854l-.708-.707L4.293 10 .146 5.854l.708-.708.718.72 7.13-4.457z"
@@ -69,6 +73,27 @@ const { data } = work;
   a:hover .thumbnail {
     transform: scale(1.04);
   }
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: fit-content;
+    line-height: 1;
+    padding: 5px 6px 4px 6px;
+    border-radius: 4px;
+  }
+  .badge-type {
+    background: var(--su8ru-accent-dark);
+  }
+  .badge-role {
+    background: var(--su8ru-accent2-dark);
+  }
   .description {
     font-size: 0.95rem;
     line-height: 1.4;
@@ -76,12 +101,16 @@ const { data } = work;
   }
   .pinned {
     position: absolute;
-    top: -4px;
-    right: -7px;
+    top: -6px;
+    right: -6px;
     color: #fff;
-    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.5));
-    background: var(--highlight-color);
+    background: linear-gradient(
+      120deg,
+      var(--su8ru-accent),
+      var(--su8ru-accent2)
+    );
     padding: 3px 3px 5px 5px;
     border-radius: 8px;
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.2));
   }
 </style>
