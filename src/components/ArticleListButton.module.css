@@ -4,7 +4,7 @@
   border-radius: 12px;
   border: none;
   background: transparent;
-  border: 1px solid rgb(var(--text-color-rgb) / 0.4);
+  border: 1px solid var(--border-color);
   color: var(--text-color);
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 .button:hover {
-  background: rgb(var(--accent-color-rgb) / 0.04);
+  background: var(--su8ru-accent-hover);
 }
 .icon {
   margin-top: -1px;

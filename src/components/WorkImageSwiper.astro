@@ -52,7 +52,7 @@ const { images } = Astro.props;
     padding-bottom: 32px;
   }
   swiper-container::part(bullet-active) {
-    background: var(--accent-color);
+    background: var(--su8ru-accent);
   }
   swiper-container::part(bullet) {
     background: var(--text-color);
@@ -60,9 +60,8 @@ const { images } = Astro.props;
   }
   swiper-container::part(button-next),
   swiper-container::part(button-prev) {
-    color: var(--text-color);
-    filter: drop-shadow(0 0 2px rgb(var(--bg-color-rgb) / 0.5))
-      drop-shadow(0 2px 3px rgb(var(--bg-color-rgb) / 0.3));
+    color: var(--su8ru-white);
+    filter: drop-shadow(0 0 2px var(--su8ru-accent-dark));
   }
   .item-image {
     width: 100%;
@@ -72,6 +71,6 @@ const { images } = Astro.props;
   }
   .item-caption {
     font-size: 0.9rem;
-    color: rgb(var(--text-color-rgb) / 0.8);
+    color: var(--border-color);
   }
 </style>

@@ -2,7 +2,7 @@
 title: projcet canvas 〜ヰ世界情緒育成計画〜
 description: アイドル育成ADVゲームのプログラムを担当。Steamにて無料配信中。
 type: 商業
-role: プログラム
+role: プログラム・デバッグ
 date: 2024-04-01
 pinned: true
 thumbnail:

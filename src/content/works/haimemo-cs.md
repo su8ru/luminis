@@ -1,5 +1,5 @@
 ---
-title: 廃遊園地のメメントメモリア PS4/Switch版公式ウェブサイト
+title: 廃遊園地のメメントメモリア PS4/Switch版 公式ウェブサイト
 description: デザインから実装まで一貫して担当。
 type: 商業
 date: 2024-04-25

@@ -40,30 +40,33 @@ const { title } = Astro.props;
 </html>
 
 <style>
-  html {
-    color-scheme: light;
-    --text-color: hsl(204, 6%, 16%);
-    --text-color-rgb: 38 41 43;
-    --bg-color: hsl(197, 22%, 90%);
-    --bg-color-rgb: 224 232 235;
-    --accent-color: hsl(197, 80%, 50%);
-    --accent-color-rgb: 25 172 230;
-    --highlight-color: hsl(347, 80%, 60%);
-    --highlight-color-rgb: 235 71 107;
+  :root {
+    --su8ru-main: oklch(0.6 0.08 245);
     --su8ru-accent: oklch(0.75 0.12 245);
+    --su8ru-accent-hover: oklch(0.75 0.12 245 / 0.1);
+    --su8ru-accent-border: oklch(0.75 0.12 245 / 0.4);
     --su8ru-accent-dark: oklch(0.65 0.12 245);
     --su8ru-accent2: oklch(0.75 0.12 185);
     --su8ru-accent2-dark: oklch(0.65 0.12 185);
+    --su8ru-white: oklch(0.95 0.01 245);
+    --su8ru-gray: oklch(0.55 0.04 245);
+    --su8ru-black: oklch(0.3 0.02 245);
   }
+
+  html {
+    color-scheme: light;
+    --text-color: var(--su8ru-black);
+    --border-color: oklch(0.3 0.02 245 / 0.4);
+    --bg-color: var(--su8ru-white);
+  }
+
   html.dark {
     color-scheme: dark;
-    --text-color: hsl(197, 22%, 90%);
-    --text-color-rgb: 224 232 235;
-    --bg-color: hsl(192, 10%, 10%);
-    --bg-color-rgb: 23 27 28;
-    --accent-color: hsl(197, 80%, 80%);
-    --accent-color-rgb: 163 222 245;
+    --text-color: var(--su8ru-white);
+    --border-color: oklch(0.95 0.01 245 / 0.4);
+    --bg-color: var(--su8ru-black);
   }
+
   body {
     font-family:
       Inter, 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
@@ -135,13 +138,17 @@ const { title } = Astro.props;
   }
   .content a,
   .content a:visited {
-    color: var(--accent-color);
+    color: var(--su8ru-accent-dark);
+    text-decoration: none;
+  }
+  .content a:hover {
+    text-decoration: underline;
   }
 
   .rlc-container {
     display: flex;
     height: 120px;
-    border: 1px solid rgb(var(--text-color-rgb) / 0.4);
+    border: 1px solid var(--border-color);
     color: var(--text-color);
     text-decoration: none;
     overflow: hidden;
@@ -150,7 +157,7 @@ const { title } = Astro.props;
     margin: 16px 0;
   }
   .rlc-container:hover {
-    background: rgb(var(--accent-color-rgb) / 0.04);
+    background: var(--su8ru-accent-hover);
   }
   .rlc-info a,
   .rlc-info a:visited {
